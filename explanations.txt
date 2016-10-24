@@ -1,4 +1,7 @@
+Question 1: I had a question about whether the substring need to be consecutive, but let's assume the it needs to be consecutive since its a little bit more difficult. We can check whether two strings are anagram by checking the count of all characters in both string. If all counts are the same, then the two strings are anagram. We can first compile a dictionary of counts for t and check with every possible consecutive substring sets in s. If any set is anagram of t, then we return True, else False. Comparing counts of all characters will can be done in constant time since there are only limited amount of characters to check. Looping through all possible consecutive substrings will take worst case O(len(s)). Therefore the time complexity of this algorithm is O(len(s)). Excluding the space used to load t and s, we only additionally stored the counts of t and counts of s. Since the number of character are bounded, the algorithm will only take space complexity of O(1).
+
+Question 2:
+
+
 
 provide your reasoning behind decisions made in the code. For example, why did you use that data structure? You also need to explain the efficiency (time and space) of your solution.
-
-abcdabcdabcdabcdabcdabcdeabcd

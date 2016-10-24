@@ -9,7 +9,8 @@ function returns `True`. Your function definition should look like:
 `question1(s, t)` and return a boolean `True` or `False`.
 
 ## Question 2
-Given a string a, find the longest palindromic substring contained in a. Your function definition should look like question2(a), and return a string.
+Given a string `a`, find the longest palindromic substring contained in `a`. 
+Your function definition should look like `question2(a)`, and return a string.
 
 ## Question 3
 Given an undirected graph G, find the minimum spanning tree within G. A minimum spanning tree connects all vertices in a graph with the smallest possible total weight of edges. Your function should take in and return an adjacency list structured like this:
