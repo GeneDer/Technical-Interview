@@ -7,5 +7,8 @@ One observation to make is that checking the palindrome will take worst case O(n
 Question 3:
 
 
+Question 4:
 
-provide your reasoning behind decisions made in the code. For example, why did you use that data structure? You also need to explain the efficiency (time and space) of your solution.
+
+Question 5:
+The best way to solve this problem is to just traverse through the linked list twice. The first time we traverse through the linked list to get its length. Then we can determine how many elements to traverse on the second pass to get the mth element from the back. The time will still be O(n) for traverse through ll twice. Since we only store the length, the space complexity will be O(1). One special case to note is to deal with circular linked list. If that case is not treated, then the get_length() function might stuck in a infinite loop when feed a circular linked list. We can use two nodes each traverse at different rate to deal with the case. If both of them ever meet, then we know the linked list is circular and we can terminate the loop. This part will not take additional time in traversal and will only need to store one additional node durning the traversal. Therefore the overall time and space complexity will not be affected. 
