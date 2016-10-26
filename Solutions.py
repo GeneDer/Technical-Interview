@@ -17,8 +17,6 @@ def compare(set1, set2):
         return False
 
 def question1(s, t):
-    # assuming substring need to be consecutive
-
     # make sure s is a string
     if type(s) != str:
         return "Error: s not string!"
@@ -89,9 +87,62 @@ def test1():
     print "Case (repeated substrings):", "Pass" if True == question1("abcdabcdabcdabcdabcdabcdeabcd", "abce") else "Fail"
     print "Case (none consecutive matching substrings):", "Pass" if False == question1("abeeeeeeecd", "abcd") else "Fail"
 
-test1()
-
 
 ############# For Question 2 #############
+def longest_palindrome(a, left_idx, right_idx):
+    # find the longest palindrome if centered at idx.
+    # idx can be in between elements.
+    # left_idx and right_idx are the left and the right element of idx
+    l = left_idx
+    r = right_idx
+    while l >=0 and r < len(a):
+        if a[l] == a[r]:
+            l -= 1
+            r += 1
+        else:
+            return l,r
+    return l,r
+
 def question2(a):
+    # check edge cases
+    if type(a) != str:
+        return "Error: a not string!"
+    if len(a) < 2:
+        return a
+
+    # check all possible center of palindrome
+    pal_left = 0
+    pal_right = 1
+    for i in xrange(len(a)-1):
+        # check palindrome centered at i
+        l,r = longest_palindrome(a, i, i)
+        if r-l-1 > pal_right - pal_left:
+            pal_right = r
+            pal_left = l+1
+            
+        # check palindrome centered between i and i+1
+        l,r = longest_palindrome(a, i, i+1)
+        if r-l-1 > pal_right - pal_left:
+            pal_right = r
+            pal_left = l+1
+    return a[pal_left:pal_right]
+
+def test2():
+    print "\nTesting 2"
+    print "Edge case (not string):", "Pass" if "Error: a not string!" == question2(123) else "Fail"
+    print "Edge case (empty string):", "Pass" if "" == question2("") else "Fail"
+    print "Case (a = \"a\"):", "Pass" if "a" == question2("a") else "Fail" 
+    print "Case (a = \"aa\"):", "Pass" if "aa" == question2("aa") else "Fail"
+    print "Case (a = \"ab\"):", "Pass" if "a" == question2("ab") else "Fail"
+    print "Case (a = \"aba\"):", "Pass" if "aba" == question2("aba") else "Fail" 
+    print "Case (a = \"aaaaaba\"):", "Pass" if "aaaaa" == question2("aaaaaba") else "Fail" 
+    print "Case (a = \"abcbaiojadoijaosdj\"):", "Pass" if "abcba" == question2("abcbaiojadoijaosdj") else "Fail" 
+
+
+############# For Question3 #############
+def question3(G):
     pass
+
+
+test1()
+test2()   
